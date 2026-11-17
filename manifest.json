@@ -3,7 +3,7 @@
   "short_name": "Shophub",
   "start_url": "https://shhop.netlify.app/",
   "display": "standalone",
-  "background_color": "#1e293b",
+  "background_color": "#0b1220",
   "theme_color": "#FF6600",
   "icons": [
     {
