@@ -1,0 +1,22 @@
+[build]
+  # CSS compile is best-effort: if it fails, pages fall back to the Tailwind CDN automatically.
+  command = "(npm install --no-audit --no-fund && npm run build:css) || echo 'Tailwind compile skipped - CDN fallback active'; node scripts/generate-sitemap.mjs"
+  publish = "."
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[headers]]
+  for = "/tailwind.css"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/service-worker.js"
+  [headers.values]
+    Cache-Control = "no-cache"
